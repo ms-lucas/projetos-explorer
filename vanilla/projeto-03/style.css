@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+input,
+button,
+select,
+textarea {
+    font-family: 'Poppins', sans-serif;
+}
+
+body { 
+    overflow-x: hidden;
+    background: #D9D9D9;
+}
+
+h1,
+h2 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: bold;
+}
+
+header {
+    width: 100vw;
+    height: 368px;
+    background-color: #121214;
+}
+
+header div {
+    width: 736px;
+    margin: auto;
+    padding-top: 80px;
+
+}
+
+header h1 {
+    margin-bottom: 24px;
+    font-size: 36px;
+    line-height: 42px;
+    color: white;
+}
+
+header p {
+    color: #42D3FF;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.page {
+    width: 736px;
+    margin: auto;
+  }
+
+form {
+    width: 736px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    margin: -86px auto 0;
+    padding: 64px;
+    border-radius: 8px 8px 0 0;
+    background: #FAFAFC;
+}
+
+form fieldset {
+    border: none;
+}
+
+.fieldset-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+form fieldset legend {
+    width: 100%;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 34px;
+    border-bottom: 1px solid #E6E6F0;
+    padding-bottom: 16px;
+}
+
+.col-3 {
+    display: flex;
+    gap: 20px;
+}
+
+.col-3>div:nth-child(1) {
+    width: 100%;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-wrapper {
+    position: relative;
+}
+
+.checkbox-wrapper label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.checkbox-wrapper input {
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    opacity: 0;
+}
+.checkbox-wrapper input:focus + label::before {
+    outline: 2px solid black;
+}
+
+
+
+.checkbox-wrapper label::before{
+    content: '';
+    display: block;
+    flex-direction: row;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #E6E6F0;
+    border-radius: 8px;
+}
+
+.checkbox-wrapper input:checked + label::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='18' height='14' viewBox='0 0 18 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 11.17L1.83 7L0.410004 8.41L6 14L18 2L16.59 0.589996L6 11.17Z' fill='%2342D3FF'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: right 50% top 50%;
+}
+
+.input-wrapper label, 
+.checkbox-wrapper label {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 8px;
+}
+
+.checkbox-wrapper label {
+    margin: 0px;
+}
+
+.input-wrapper label span {
+    font-size: 12px;
+    line-height: 20px;
+    color: #C1BCCC;
+    margin-left: 12px;
+}
+
+.input-wrapper label span:hover {
+    color: #6C6A71;
+}
+
+.input-wrapper input,
+.input-wrapper textarea,
+.input-wrapper select {
+    height: 56px;
+    background-color: #FAFAFC;
+    border: 1px solid #E6E6F0;
+    border-radius: 8px;
+    padding: 15px 24px;
+    font-size: 16px;
+    line-height: 26px;
+    color: #C1BCCC;
+}
+
+.input-wrapper textarea {
+    height: 168px;
+}
+
+.input-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1_54)'%3E%3Cpath d='M8 10L12 14L16 10' stroke='%239C98A6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_54'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: right 24px top 50%;
+}
+
+footer {
+    height: 136px;
+    display: flex;
+    flex-direction: column;
+    background: #F0F0F4;
+    padding: 40px 64px;
+    margin: 0 auto;
+    border-radius: 0 0 8px 8px;
+    border-top: 1px solid #D6D6D6;
+}
+
+footer .button {
+    background-color: #04D361;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 26px;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+}
+
+footer .button:hover {
+    background: #08a04c ;
+}
+
+input:invalid, textarea:invalid, select:invalid{
+    border: 1px solid #FF1010;
+}
