@@ -1,0 +1,45 @@
+:root {
+  --background: #040924;
+  --tt-heading: #0c3440;
+  --tt-label: #00453a;
+  --tt-input: #212529;
+  --ot-input: #02799d;
+  --bd-input: rgba(73, 80, 87, 0.3)
+  --tt-placeholder: rgba(73, 80, 87, 0.5);
+
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  background: var(--background);
+}
+
+input,
+button {
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  padding: 4.8rem 6.4rem 6.4rem;
+  border-radius: 6px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  background: #ffffffff;
+}
