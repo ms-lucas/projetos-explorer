@@ -6,3 +6,4 @@ export const tagsRoutes = Router();
 const tagsController = new TagsController();
 
 tagsRoutes.post("/:movieNoteID", tagsController.create);
+tagsRoutes.get("/", tagsController.index);

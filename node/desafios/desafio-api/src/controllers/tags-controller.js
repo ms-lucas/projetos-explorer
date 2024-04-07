@@ -16,7 +16,7 @@ export class TagsController {
     }
 
     await knex("tags").insert({
-      name,
+      name: name.toLowerCase(),
       movie_note_id: movieNoteID,
       user_id: userID,
     });
@@ -24,7 +24,17 @@ export class TagsController {
     return response.status(204).send();
   }
 
-  async index() {
-    const tags = await knex("tags").orderBy("name");
+  async index(request, response) {
+    const { name } = request.params;
+
+    let tags = await knex("tags").orderBy("name");
+
+    if (name) {
+      tags = tags.filter((tag) =>
+        tag.name.toLowerCase().includes(name.toLowerCase().trim())
+      );
+    }
+
+    return response.json(tags);
   }
 }

@@ -25,7 +25,7 @@ export class MovieNotesController {
     if (tags) {
       const tagsInset = tags.map((tag) => {
         return {
-          name: tag,
+          name: tag.toLowerCase(),
           movie_note_id: movieNoteID,
           user_id: userID,
         };
@@ -38,11 +38,34 @@ export class MovieNotesController {
   }
 
   async index(request, response) {
-    const { userID } = request.query;
+    const { userID, tags, title } = request.query;
 
-    const movieNotes = await knex("movie_notes").where({
-      user_id: userID,
-    });
+    let movieNotes;
+
+    if (tags) {
+      const tagsArray = tags.split(",").map((tag) => tag.toLowerCase().trim());
+
+      movieNotes = await knex("tags")
+        .select(
+          "movie_notes.id",
+          "movie_notes.title",
+          "movie_notes.description",
+          "movie_notes.rating"
+        )
+        .innerJoin("movie_notes", "movie_notes.id", "tags.movie_note_id")
+        .whereIn("tags.name", tagsArray)
+        .where("movie_notes.user_id", userID);
+    } else {
+      movieNotes = await knex("movie_notes").where({
+        user_id: userID,
+      });
+    }
+
+    if (title) {
+      movieNotes = movieNotes.filter((movieNote) =>
+        movieNote.title.toLowerCase().includes(title.toLowerCase().trim())
+      );
+    }
 
     const userTags = await knex("tags").where({
       user_id: userID,

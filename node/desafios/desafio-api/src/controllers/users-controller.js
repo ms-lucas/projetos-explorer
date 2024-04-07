@@ -35,8 +35,8 @@ export class UsersController {
     if (name || email) {
       users = users.filter(
         (user) =>
-          user.name.toLowerCase().includes(name?.toLowerCase()) ||
-          user.email.toLowerCase().includes(email?.toLowerCase())
+          user.name.toLowerCase().includes(name?.toLowerCase().trim()) ||
+          user.email.toLowerCase().includes(email?.toLowerCase().trim())
       );
     }
 
